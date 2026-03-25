@@ -409,6 +409,7 @@
           </div>
         </div>
       </div>
+      <hr class="sidebar-divider">
       <div class="sidebar-carrier" id="sidebar-carrier-section">
         <div class="sidebar-carrier-logo"><img src="images/aus-post.png" alt="Australia Post"></div>
         <div class="sidebar-carrier-info">
@@ -754,29 +755,29 @@ window.addEventListener('message', function(e) {
 
   // Carrier section visibility
   var carrierSection = document.getElementById('sidebar-carrier-section');
-  if (carrierSection) carrierSection.style.display = c.showCarrier ? '' : 'none';
+  if (carrierSection) carrierSection.style.display = (c.showCarrier === false) ? 'none' : '';
 
   // Delivery date visibility
   var deliveryRow = document.querySelector('.delivery-row');
-  if (deliveryRow) deliveryRow.style.display = c.showDeliveryDate ? '' : 'none';
+  if (deliveryRow) deliveryRow.style.display = (c.showDeliveryDate === false) ? 'none' : '';
 
   // Delay tab visibility
   var delayedTab = document.querySelector('.tab-delayed');
-  if (delayedTab) delayedTab.style.display = c.showDelays ? '' : 'none';
+  if (delayedTab) delayedTab.style.display = (c.showDelays === false) ? 'none' : '';
 
   // Address notification tab visibility
   var addressTab = document.querySelector('.tab-updateaddress');
-  if (addressTab) addressTab.style.display = c.showAddressNotif ? '' : 'none';
+  if (addressTab) addressTab.style.display = (c.showAddressNotif === false) ? 'none' : '';
 
   // Returns — hide/show Return action buttons
   document.querySelectorAll('.action-btn').forEach(function(btn) {
-    if (btn.textContent.includes('Return')) btn.style.display = c.enableReturns ? '' : 'none';
+    if (btn.textContent.includes('Return')) btn.style.display = (c.enableReturns === false) ? 'none' : '';
   });
 
   // Claims — hide/show Claim action buttons
   document.querySelectorAll('.action-btn').forEach(function(btn) {
     if (btn.textContent.includes('lost') || btn.textContent.includes('claim') || btn.textContent.includes('Claim')) {
-      btn.style.display = c.enableClaims ? '' : 'none';
+      btn.style.display = (c.enableClaims === false) ? 'none' : '';
     }
   });
 
